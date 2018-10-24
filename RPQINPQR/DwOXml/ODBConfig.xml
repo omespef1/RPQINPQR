@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Parametros xmlns:xlink="http://www.w3.org/1999/xlink">
+  <Parametro>
+    <!--Conexion sin archivo tns -->
+    <!-- Cajasan -->
+    <!-- 
+    <connectionString>Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=CALIDAD)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=CALIDAD)));User Id=SVN_CAJASAN;Password=cajasan;</connectionString>
+	  <providerName>ORA</providerName>
+	  <providerName>System.Data.OracleClient</providerName>
+    -->
+    <!-- Comersan -->
+    <!-- 
+	  <connectionString>Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=CALIDAD)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=CALIDAD)));User Id=COMERSAN;Password=SEVEN;</connectionString>
+	  <providerName>ORA</providerName>
+	  <providerName>System.Data.OracleClient</providerName>
+    -->
+    <!--Conexion con archivo tns -->
+    <!--<connectionString>Data Source=CALIDAD;User Id=COMERSAN;Password=SEVEN;</connectionString>
+	  <providerName>ORA</providerName>
+	  <providerName>System.Data.OracleClient</providerName>-->
+    <!--<connectionString>178195191176191199136192191150138174157192196191138182193186192127145193175192138178178145192191188185136189138178179178195176192178178136187195160178182191160185160189142188185191174178187195160178174174174136126174178192160177188192174136192145109178162188178178138178191160</connectionString>
+    <providerName>158153160</providerName>-->
+    <!--<connectionString>Server=dwbases\pruebaseven;User ID=darl;Password=Digital6581;Database=Nogal;App=NogalApp;</connectionString>-->
+   <!-- <connectionString>Server=SQL2014\sevendc;User ID=consultoria;Password=Sistemas15;Database=Replicas;App=NogalApp;</connectionString> -->
+     <!--<connectionString>Server=cerezo;User ID=desarrollo;Password=Desarrollo2018;Database=sevenDesarrollo;App=NogalApp;</connectionString>--> 
+    
+  <!--<connectionString>Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=TESTINGS)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=CALIDAD)));User Id=Testing;Password=SISTEMAS16;</connectionString> 
+  <providerName>ORA</providerName> 
+  <providerName>System.Data.OracleClient</providerName >-->    
+  
+
+    <connectionString>Server=cerezo;User ID=Desarrollo;Password=Desarrollo2018;Database=sevenDesarrollo;App=NogalApp;</connectionString>
+    <providerName>SQL</providerName>
+  </Parametro>
+</Parametros>

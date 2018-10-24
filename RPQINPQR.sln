@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPQINPQR", "RPQINPQR\RPQINPQR.csproj", "{1DF6D203-B5B0-4934-979B-725F79FBBD78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Digitalware.Seven.Utilidades", "E:\omar\Fuentes\SelfServices FULL\SelfServicesSEVEN\Digitalware.Seven.Utilidades\Digitalware.Seven.Utilidades.csproj", "{394779DE-5B6B-46F7-B24A-31F7A5518BCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DF6D203-B5B0-4934-979B-725F79FBBD78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DF6D203-B5B0-4934-979B-725F79FBBD78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DF6D203-B5B0-4934-979B-725F79FBBD78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DF6D203-B5B0-4934-979B-725F79FBBD78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{394779DE-5B6B-46F7-B24A-31F7A5518BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{394779DE-5B6B-46F7-B24A-31F7A5518BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{394779DE-5B6B-46F7-B24A-31F7A5518BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{394779DE-5B6B-46F7-B24A-31F7A5518BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D202EA69-429A-4273-ABF8-CD18E8D12AB0}
+	EndGlobalSection
+EndGlobal
