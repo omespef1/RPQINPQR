@@ -18,7 +18,7 @@ namespace RPQINPQR.Controllers
         public TOTransaction Post(List<PQEncue> encuesta)
         {
            
-            return boEncue.SetPqEncue(encuesta);
+             return boEncue.SetPqEncue(encuesta);
         }
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         public TOTransaction Get(int inp_cont)
