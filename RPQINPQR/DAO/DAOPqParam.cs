@@ -19,7 +19,7 @@ namespace RPQINPQR.DAO
         public TOPqParam GetMailParam()
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("  SELECT  PAR_URLE,PAR_MCIN,PAR_TCIN,PAR_MCTR,PAR_TCTR,PAR_MCCR,PAR_TCCR FROM PQ_PARAM,GN_TERCE ");
+            sql.Append("  SELECT  PAR_URLE,PAR_MCIN,PAR_TCIN,PAR_MCTR,PAR_TCTR,PAR_MCCR,PAR_TCCR, PAR_ASUI FROM PQ_PARAM,GN_TERCE ");
             sql.Append("  WHERE PQ_PARAM.EMP_CODI = GN_TERCE.EMP_CODI AND PQ_PARAM.TER_CODI = GN_TERCE.TER_CODI ");
             sql.Append("  AND PQ_PARAM.EMP_CODI= @EMP_CODI ");
             List<Parameter> parameters = new List<Parameter>();
@@ -40,6 +40,7 @@ namespace RPQINPQR.DAO
             par_tctr = reader["PAR_TCTR"].AsString(),
             par_mccr = reader["PAR_MCCR"].AsString(),
             par_tccr = reader["PAR_TCCR"].AsString(),
+            par_asui = reader["PAR_ASUI"].AsString()
             
         };
     }

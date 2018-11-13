@@ -128,7 +128,7 @@ namespace RPQINPQR.DAO
 
 
             StringBuilder sql = new StringBuilder();
-            sql.Append(string.Format("SELECT TOP(1) {0} ", query));
+            sql.Append(string.Format("SELECT {0} ", query));
             sql.Append("  FROM PQ_INPQR                                   ");
             sql.Append("  INNER JOIN GN_TERCE                             ");
             sql.Append("  ON  PQ_INPQR.EMP_CODI = GN_TERCE.EMP_CODI       ");
@@ -147,7 +147,9 @@ namespace RPQINPQR.DAO
             sql.Append("  AND PQ_INPQR.REG_CODI = GN_MUNIC.REG_CODI       ");
             sql.Append("  AND PQ_INPQR.DEP_CODI = GN_MUNIC.DEP_CODI       ");
             sql.Append("  AND PQ_INPQR.MUN_CODI = GN_MUNIC.MUN_CODI       ");
-            sql.Append("  WHERE PQ_INPQR.EMP_CODI =  @EMP_CODI          ");
+            sql.Append("  INNER JOIN GN_ITEMS  ");
+            sql.Append(" ON PQ_INPQR.ITE_TPQR = GN_ITEMS.ITE_CONT ");
+            sql.Append("  WHERE PQ_INPQR.EMP_CODI =  @EMP_CODI            ");
             sql.Append("AND PQ_INPQR.INP_CONT =  @INP_CONT          ");
             List<SQLParams> sQLParams = new List<SQLParams>();
             sQLParams.Add(new SQLParams("EMP_CODI", emp_codi));

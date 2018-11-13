@@ -14,7 +14,8 @@ namespace RPQINPQR.TO
         public string par_tctr { get; set; }
         public string par_mccr { get; set; }
         public string par_tccr { get; set; }
-       
-        
+        public string par_asui { get; set; }
+
+
     }
 }

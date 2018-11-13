@@ -78,8 +78,9 @@ namespace RPQINPQR.tools
             Mail mail = new Mail();
             if (typeMail == "")
             {
-                MailPQParam.par_tcin = mailHandler.BuildDinamicMail(MailPQParam, pqr.emp_codi, pqr.inp_cont);
-                mail.subject = string.Format("Derecho de petición No. {0} ({1}) con código {2}", pqr.inp_cont, typeResquest, pqr.genratedKey.ToUpper());
+                MailPQParam.par_tcin = mailHandler.BuildDinamicMail(MailPQParam.par_tcin, pqr.emp_codi, pqr.inp_cont,pqr);
+                //mail.subject = string.Format("Derecho de petición No. {0} ({1}) con código {2}", pqr.inp_cont, typeResquest, pqr.genratedKey.ToUpper());
+                mail.subject = mailHandler.BuildDinamicMail(MailPQParam.par_asui, pqr.emp_codi, pqr.inp_cont,pqr);
                 StringBuilder body = new StringBuilder();
                 body.AppendLine("<!DOCTYPE html><html><head></head><body>");
                 body.AppendLine("<div>" + MailPQParam.par_tcin.Replace("\r\n", "<br>") + "</div>");
@@ -198,14 +199,14 @@ namespace RPQINPQR.tools
             return response.Tra_cont;
         }
 
-        public string BuildDinamicMail (TOPqParam pqparam,int emp_codi,int inp_cont)
+        public string BuildDinamicMail (String source,int emp_codi,int inp_cont,PqInpqr pqr)
         {
-            string body = pqparam.par_tcin;
+            string body = source;
             try
             {
                
                 List<string> filedNames = new List<string>();
-                var sourceFields = pqparam.par_tcin.Split('#');
+                var sourceFields = source.Split('#');
                 foreach(string field in sourceFields)
                 {
                    string fieldName = field.Substring(0, 8);
@@ -213,19 +214,24 @@ namespace RPQINPQR.tools
                 }
                 filedNames.Remove(filedNames.FirstOrDefault());
                 string query = string.Join( ",", filedNames.ToArray());
-                var resultQuery = daoPqr.GetMailInformationDinamic(query, emp_codi, inp_cont);
-                if (resultQuery.Tables[0].Rows.Count > 0)
+                if (!string.IsNullOrEmpty(query))
                 {
-                  foreach(DataRow fila in resultQuery.Tables[0].Rows)
+                    var resultQuery = daoPqr.GetMailInformationDinamic(query, emp_codi, inp_cont);
+                    if (resultQuery.Tables[0].Rows.Count > 0)
                     {
-                        for(int i=0; i< filedNames.Count;i++)
+                        foreach (DataRow fila in resultQuery.Tables[0].Rows)
                         {
-                          body =  body.Replace(filedNames[i], fila[i].ToString()) ;
+                            for (int i = 0; i < filedNames.Count; i++)
+                            {
+                                body = body.Replace(filedNames[i], fila[i].ToString());
+                            }
                         }
                     }
-                }
 
-              body =  body.Replace("#", "");
+                    body = body.Replace("#", "");
+
+                    body = body.Replace("<PASSWORD>", pqr.genratedKey);
+                }
             }
             catch(Exception ex)
             {

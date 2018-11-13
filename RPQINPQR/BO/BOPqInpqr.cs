@@ -44,6 +44,8 @@ namespace RPQINPQR.BO
                
                          
                 GnParam param = daoParam.GetGnParam(int.Parse(emp_codi));
+                if (param == null)
+                    throw new Exception(string.Format( "Parámetros de empresa no definidos para empresa {0}", emp_codi));
                 TOTransaction<List<GnPaise>> countries = boPaise.GetGnPaise();
                 if (countries.retorno == 1)
                     throw new Exception(countries.txtRetorno);
