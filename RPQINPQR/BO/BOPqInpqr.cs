@@ -148,6 +148,8 @@ namespace RPQINPQR.BO
             DAOPqParam daoPqParam = new DAOPqParam();
             DAOGnInsta daoInsta = new DAOGnInsta();
             DAOGnLogo daoLogo = new DAOGnLogo();
+            if (string.IsNullOrEmpty(pqr.inp_nide))
+                pqr.inp_nide = ".";
             int result = daoPqr.InserPqInpqr(pqr);
             pqr.genratedKey = mailHandler.GetPassword(pqr);
             // valida si tiene parametrizado Manejo Correo de Ingreso PQR en PQ_PARAM

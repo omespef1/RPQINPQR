@@ -26,7 +26,7 @@
     
   <!--<connectionString>Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=TESTINGS)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=CALIDAD)));User Id=Testing;Password=SISTEMAS16;</connectionString> 
   <providerName>ORA</providerName>-->     
-    <connectionString>Server=cerezo;User ID=Desarrollo;Password=Desarrollo2018;Database=sevenDesarrollo;App=NogalApp;</connectionString>
+    <connectionString>Server=sql2014\sevendc;User ID=consultoria;Password=Sistemas15;Database=replicas;App=WPQINPQR;</connectionString>
     <providerName>SQL</providerName>
   </Parametro>
 </Parametros>
