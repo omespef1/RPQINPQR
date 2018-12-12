@@ -10,41 +10,50 @@ namespace RPQINPQR.TO
         /// <summary>
         /// Países
         /// </summary>
-        public TOTransaction<List<GnPaise>> countries { get; set; }
+        public List<GnPaise> countries { get; set; }
         /// <summary>
         /// Departmentos
         /// </summary>
-        public TOTransaction<List<GnDepar>> states { get; set; }
+        public List<GnDepar> states { get; set; }
         /// <summary>
         /// Ciudades
         /// </summary>
-        public TOTransaction<List<GnMunic>> cities { get; set; }
+        public List<GnMunic> cities { get; set; }
         /// <summary>
         /// Digiflag para formulario de pqr
         /// </summary>
-        public TOTransaction<GnFlag> digiflag { get; set; }
+        public GnFlag digiflag { get; set; }
         /// <summary>
         /// Lista de items 
         /// </summary>
-        public TOTransaction<List<GnItem>> pqrType { get; set; } 
+        public List<GnItem> pqrType { get; set; } 
         /// <summary>
         /// Lista de items
         /// </summary>
-        public TOTransaction<List<GnItem>> pqrSubject { get; set; }
+        public List<GnItem> pqrSubject { get; set; }
         /// <summary>
         /// Lista de items
         /// </summary>
-        public TOTransaction<List<GnItem>> pqrInscription { get; set; }
+        public List<GnItem> pqrInscription { get; set; }
         /// <summary>
         /// Grupo pertenece
         /// </summary>
-        public TOTransaction<List<TOGPerte>> pqrGroup { get; set; }
+        public List<TOGPerte> pqrGroup { get; set; }
         /// <summary>
         /// Imagen de empresa
         /// </summary>
+        ///           
         public byte[] pqrImage { get; set; }
+        /// <summary>
+        /// Cliente , si se ingresa desde el selfservices
+        /// </summary>
+        public FaClien client { get; set; }
 
-        
+        public GnFlag spq000001 { get; set; }
+
+
+
+
 
 
 

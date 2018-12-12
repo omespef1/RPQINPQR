@@ -28,7 +28,7 @@ namespace RPQINPQR.BO
            emp_codi = ConfigurationManager.AppSettings["emp_codi"];
          
         }
-        public TOTransaction<PqrTransactionLoad> GetInitialDataWpqinqr()
+        public TOTransaction<PqrTransactionLoad> GetInitialDataWpqinqr(string cli_coda)
         {
             BOGnPaise boPaise = new BOGnPaise();
             BOGnDepar boDepar = new BOGnDepar();
@@ -46,32 +46,23 @@ namespace RPQINPQR.BO
                 GnParam param = daoParam.GetGnParam(int.Parse(emp_codi));
                 if (param == null)
                     throw new Exception(string.Format( "Parámetros de empresa no definidos para empresa {0}", emp_codi));
-                TOTransaction<List<GnPaise>> countries = boPaise.GetGnPaise();
-                if (countries.retorno == 1)
-                    throw new Exception(countries.txtRetorno);
-                TOTransaction<List<GnDepar>> states = boDepar.GetGnDepar(param.pai_codi);
-                if (states.retorno == 1)
-                    throw new Exception(states.txtRetorno);
-                TOTransaction<List<GnMunic>> cities = boMunic.GetAllGnMunic(param.pai_codi);
-                if (cities.retorno == 1)
-                    throw new Exception(cities.txtRetorno);
-                TOTransaction<GnFlag> flag = boFlag.GetGnDigfl("SPQ000002");
-                if (flag.retorno == 1)
-                    throw new Exception(flag.txtRetorno);
-                TOTransaction<List<GnItem>> pqrType = boItems.GetGnItems(327);
-                if (pqrType.retorno == 1)
-                    throw new Exception(pqrType.txtRetorno);
-                TOTransaction<List<GnItem>> pqrSubject = boItems.GetGnItems(330);
-                if (pqrSubject.retorno == 1)
-                    throw new Exception(pqrSubject.txtRetorno);
-                TOTransaction<List<GnItem>> pqrInscription = boItems.GetGnItems(331);
-                if (pqrInscription.retorno == 1)
-                    throw new Exception(pqrInscription.txtRetorno);
-                TOTransaction<List<TOGPerte>> pqrGrpups = boPerte.GetPqDpara();
-                if (pqrGrpups.retorno == 1)
-                    throw new Exception(pqrGrpups.txtRetorno);
-
-
+                List<GnPaise> countries = boPaise.GetGnPaise();
+            
+                List<GnDepar> states = boDepar.GetGnDepar(param.pai_codi);               
+                  
+                List<GnMunic> cities = boMunic.GetAllGnMunic(param.pai_codi);
+                
+                GnFlag flag = boFlag.GetGnDigfl("SPQ000002");
+             
+                List<GnItem> pqrType = boItems.GetGnItems(327);
+               
+                List<GnItem> pqrSubject = boItems.GetGnItems(330);
+               
+                List<GnItem> pqrInscription = boItems.GetGnItems(331);
+               
+                List<TOGPerte> pqrGrpups = boPerte.GetPqDpara();
+                
+                               
                 PqrTransactionLoad result = new PqrTransactionLoad();
                 result.countries = countries;
                 result.states = states;
@@ -82,6 +73,12 @@ namespace RPQINPQR.BO
                 result.pqrGroup = pqrGrpups;
                 result.digiflag = flag;
                 result.pqrImage = daoLogo.GetGnLogo(int.Parse(emp_codi)).emp_logs;
+                if (emp_codi.Length > 0 && cli_coda.Length > 0)
+                {
+                    FaClien client = DAOFaClien.GetFaClien(int.Parse(emp_codi), cli_coda);
+                    if (client == null)
+                        throw new Exception(string.Format("No se encontraron clientes con identificación {0} y empresa {1}", emp_codi, cli_coda));                    
+                }
                 return new TOTransaction<PqrTransactionLoad>() { objTransaction = result, txtRetorno = "", retorno = 0 };
 
             }

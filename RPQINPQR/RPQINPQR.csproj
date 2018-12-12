@@ -170,6 +170,7 @@
     <Compile Include="BO\BOPqr.cs" />
     <Compile Include="BO\BOWfCdocu.cs" />
     <Compile Include="Controllers\DownloadController.cs" />
+    <Compile Include="Controllers\FaClienController.cs" />
     <Compile Include="Controllers\GnArbolController.cs" />
     <Compile Include="Controllers\GnDeparController.cs" />
     <Compile Include="Controllers\GnItemsController.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Controllers\PqInpqrController.cs" />
     <Compile Include="Controllers\PqrTransactionLoadController.cs" />
     <Compile Include="Controllers\uploadController.cs" />
+    <Compile Include="DAO\DAOFaClien.cs" />
     <Compile Include="DAO\DAOGnAdjFi.cs" />
     <Compile Include="DAO\DAOGnAdju.cs" />
     <Compile Include="DAO\DAOGnArbol.cs" />
@@ -212,6 +214,7 @@
     </Compile>
     <Compile Include="tools\fileHandler.cs" />
     <Compile Include="tools\mailHandler.cs" />
+    <Compile Include="TO\FaClien.cs" />
     <Compile Include="TO\FilePQR.cs" />
     <Compile Include="TO\GnArbol.cs" />
     <Compile Include="TO\GnDepar.cs" />
