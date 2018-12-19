@@ -169,6 +169,7 @@
     <Compile Include="BO\BOPqInpqr.cs" />
     <Compile Include="BO\BOPqr.cs" />
     <Compile Include="BO\BOWfCdocu.cs" />
+    <Compile Include="DAO\DAOCtContr.cs" />
     <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\FaClienController.cs" />
     <Compile Include="Controllers\GnArbolController.cs" />
@@ -214,6 +215,7 @@
     </Compile>
     <Compile Include="tools\fileHandler.cs" />
     <Compile Include="tools\mailHandler.cs" />
+    <Compile Include="TO\CtContr.cs" />
     <Compile Include="TO\FaClien.cs" />
     <Compile Include="TO\FilePQR.cs" />
     <Compile Include="TO\GnArbol.cs" />

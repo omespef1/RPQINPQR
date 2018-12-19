@@ -22,11 +22,11 @@
     <providerName>158153160</providerName>-->
     <!--<connectionString>Server=dwbases\pruebaseven;User ID=darl;Password=Digital6581;Database=Nogal;App=NogalApp;</connectionString>-->
    <!-- <connectionString>Server=SQL2014\sevendc;User ID=consultoria;Password=Sistemas15;Database=Replicas;App=NogalApp;</connectionString> -->
-     <!--<connectionString>Server=cerezo;User ID=desarrollo;Password=Desarrollo2018;Database=sevenDesarrollo;App=NogalApp;</connectionString>--> 
-    
-  <!--<connectionString>Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=TESTINGS)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=CALIDAD)));User Id=Testing;Password=SISTEMAS16;</connectionString> 
-  <providerName>ORA</providerName>-->     
-    <connectionString>Server=sql2014\sevendc;User ID=consultoria;Password=Sistemas15;Database=replicas;App=WPQINPQR;</connectionString>
-    <providerName>SQL</providerName>
+     <!--<connectionString>Server=cerezo;User ID=desarrollo;Password=Desarrollo2018;Database=sevenDesarrollo;App=NogalApp;</connectionString>
+    <providerName>SQL</providerName>-->
+    <connectionString>Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=TESTINGS)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=CALIDAD)));User Id=Testing;Password=SISTEMAS16;</connectionString> 
+  <providerName>ORA</providerName>     
+    <!--<connectionString>Server=sql2014\sevendc;User ID=consultoria;Password=Sistemas15;Database=replicas;App=WPQINPQR;</connectionString>
+    <providerName>SQL</providerName>-->
   </Parametro>
 </Parametros>

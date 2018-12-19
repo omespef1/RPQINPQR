@@ -15,7 +15,7 @@ namespace RPQINPQR.Controllers
        /// Retorna la lista de departamentos para colombia (Pai_codi=169)
        /// </summary>
        /// <returns></returns>
-        public TOTransaction<List<GnDepar>> Get()
+        public List<GnDepar> Get()
         {
             BOGnDepar bo = new BOGnDepar();
             return bo.GetGnDepar(169);

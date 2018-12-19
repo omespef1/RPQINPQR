@@ -51,6 +51,8 @@ namespace RPQINPQR.TO
 
         public GnFlag spq000001 { get; set; }
 
+        public List<CtContr> contracts { get; set; }
+
 
 
 

@@ -9,6 +9,6 @@ namespace RPQINPQR.TO
     {
         public string arb_codi { get; set; }
         public string arb_nomb { get; set; }
-        public Int32 arb_cont { get; set; }
+        public int arb_cont { get; set; }
     }
 }

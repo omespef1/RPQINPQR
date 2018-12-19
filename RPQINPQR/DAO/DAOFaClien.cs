@@ -17,16 +17,19 @@ namespace RPQINPQR.DAO
             sql.Append("  SELECT fc.EMP_CODI,                                  ");
             sql.Append("  fc.CLI_CODA,                                         ");
             sql.Append("  fd.ARB_CSUC,                                         ");
+            sql.Append("  ga.ARB_NOMB,                                          ");
             sql.Append("  fc.TIP_CODI,                                         ");
             sql.Append("  gt.TIP_NOMB,                                         ");
             sql.Append("  fc.CLI_NOMB,                                         ");
             sql.Append("  fc.CLI_APEL,                                         ");
             sql.Append("  fd.DCL_NTEL,                                         ");
             sql.Append("  fd.DCL_MAIL,                                         ");
-            sql.Append("  fd.DCL_DIRE                                          ");
+            sql.Append("  fd.DCL_DIRE,                                         ");
             sql.Append("  fd.PAI_CODI,                                         ");
             sql.Append("  fd.DEP_CODI,                                         ");
-            sql.Append("  fd.MUN_CODI                                          ");
+            sql.Append("  gd.REG_CODI,                                         ");
+            sql.Append("  fd.MUN_CODI ,                                         ");
+            sql.Append("  gi.TIP_ABRE                                            ");
             sql.Append("  FROM   FA_CLIEN fc                                   ");
             sql.Append("  INNER JOIN FA_DCLIE fd                               ");
             sql.Append("       ON fc.EMP_CODI = fd.EMP_CODI                    ");
@@ -42,6 +45,13 @@ namespace RPQINPQR.DAO
             sql.Append("       ON fd.PAI_CODI = gm.PAI_CODI                    ");
             sql.Append("       AND fd.DEP_CODI = gm.DEP_CODI                   ");
             sql.Append("       AND FD.MUN_CODI = GM.MUN_CODI                   ");
+            sql.Append("  INNER JOIN GN_ARBOL ga         ");
+            sql.Append("  ON fd.ARB_SUCU = ga.ARB_CONT   ");
+            sql.Append("  INNER JOIN GN_TIPDO gi ON fc.TIP_CODI = gi.TIP_CODI   ");
+            sql.Append("  AND ga.EMP_CODI = fd.EMP_CODI  ");
+            sql.Append("  AND ga.TAR_CODI = 2            ");
+
+
             sql.Append("  WHERE fd.EMP_CODI = @EMP_CODI                        ");
             sql.Append("  AND FC.CLI_CODA =   @CLI_CODA                        ");
             sql.Append("  AND fd.DCL_CODD = 1                                  ");
@@ -50,7 +60,7 @@ namespace RPQINPQR.DAO
                 new SQLParams("EMP_CODI",emp_codi),
                 new SQLParams("CLI_CODA",cli_coda)
             };
-            return new DbConnection().Get<FaClien>(sql.ToString());
+            return new DbConnection().Get<FaClien>(sql.ToString(), sQLParams);
 
         }
     }

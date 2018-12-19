@@ -38,6 +38,7 @@ namespace RPQINPQR.TO
         public int cas_cont { get; set; }
         public string Path { get; set; }      
         public List<PqDinPq> seguimientos { get; set; }
+        public int con_cont { get; set; }       
         public HttpResponseMessage adj_file { get; set; }
         
     }

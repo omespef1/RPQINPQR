@@ -20,7 +20,7 @@ namespace RPQINPQR.Controllers
         /// <returns></returns>
         
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public TOTransaction<List<GnItem>> Get(int tit_cont)
+        public List<GnItem> Get(int tit_cont)
         {
             BOGnItems bo = new BOGnItems();
             return bo.GetGnItems(tit_cont, "");

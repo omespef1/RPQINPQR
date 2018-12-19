@@ -24,11 +24,11 @@ namespace RPQINPQR.DAO
                 sql.Append(" INSERT INTO PQ_INPQR( ");
                 sql.Append(" AUD_ESTA,AUD_USUA,AUD_UFAC,EMP_CODI,INP_CONT,INP_NFOR,INP_FECH,INP_FEVE,INP_ESTA,INP_FCIE,ARB_SUCU,INP_TCLI,INP_NCAR,INP_NIDE, ");
                 sql.Append(" INP_NOMB,INP_APEL,INP_NTEL,INP_MAIL,ITE_FREC,ITE_TPQR,ARB_CECO,ITE_SPRE,ITE_ANCU,INP_MPQR,ARB_CECA,ARB_CECR,ITE_TIPI,ITE_STIP,TER_CODI,ING_CONT,INV_CODI,INV_CONT,SOC_CONT,");
-                sql.Append(" SBE_CONT,MAC_NUME,CAS_CONT,INP_TIDO,INP_DIRE,INP_NCEL,PAI_CODI,REG_CODI,DEP_CODI,MUN_CODI,INP_MRES,DPA_CODI)VALUES ");
+                sql.Append(" SBE_CONT,MAC_NUME,CAS_CONT,INP_TIDO,INP_DIRE,INP_NCEL,PAI_CODI,REG_CODI,DEP_CODI,MUN_CODI,INP_MRES,DPA_CODI,CON_CONT)VALUES ");
                 sql.Append(" (@AUD_ESTA,@AUD_USUA,@AUD_UFAC,@EMP_CODI,@INP_CONT,@INP_NFOR,@INP_FECH,@INP_FEVE,@INP_ESTA,@INP_FCIE,@ARB_SUCU,@INP_TCLI,@INP_NCAR, ");
                 sql.Append(" @INP_NIDE,@INP_NOMB,@INP_APEL,@INP_NTEL,@INP_MAIL,@ITE_FREC,@ITE_TPQR,@ARB_CECO,@ITE_SPRE,@ITE_ANCU,@INP_MPQR,@ARB_CECA,@ARB_CECR, ");
                 sql.Append(" @ITE_TIPI,@ITE_STIP,@TER_CODI,@ING_CONT,@INV_CODI,@INV_CONT,@SOC_CONT,@SBE_CONT,@MAC_NUME,@CAS_CONT,@INP_TIDO,@INP_DIRE,@INP_NCEL, ");
-                sql.Append(" @PAI_CODI,@REG_CODI,@DEP_CODI,@MUN_CODI,@INP_MRES,@INP_GPER) ");
+                sql.Append(" @PAI_CODI,@REG_CODI,@DEP_CODI,@MUN_CODI,@INP_MRES,@INP_GPER,@CON_CONT) ");
                 List<Parameter> parametros = new List<Parameter>();
                 parametros.Add(new Parameter("@AUD_ESTA ", "A"));
                 parametros.Add(new Parameter("@AUD_USUA", "Seven"));
@@ -75,6 +75,7 @@ namespace RPQINPQR.DAO
                 parametros.Add(new Parameter("@MUN_CODI", pqr.mun_codi));
                 parametros.Add(new Parameter("@INP_MRES", pqr.inp_mres));
                 parametros.Add(new Parameter("@INP_GPER", pqr.inp_gper));
+                parametros.Add(new Parameter("@CON_CONT", pqr.con_cont));
                 OTOContext pTOContext = new OTOContext();
                 var conection = DBFactory.GetDB(pTOContext);
                 return conection.Insert(pTOContext, sql.ToString(), parametros.ToArray());

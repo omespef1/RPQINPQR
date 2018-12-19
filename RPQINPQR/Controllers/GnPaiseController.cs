@@ -15,7 +15,7 @@ namespace RPQINPQR.Controllers
         /// Retorna la lista de países configurada en Seven erp
         /// </summary>
         /// <returns></returns>
-        public TOTransaction<List<GnPaise>> Get()
+        public List<GnPaise> Get()
         {
             BOGnPaise bo = new BOGnPaise();
             return bo.GetGnPaise();

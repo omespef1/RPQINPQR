@@ -39,31 +39,22 @@ namespace RPQINPQR.BO
             BOGnArbol boArbol = new BOGnArbol();
             DAOGnParam daoParam = new DAOGnParam();
             DAOGnLogo daoLogo = new DAOGnLogo();
+            DAOCtContr daoContr = new DAOCtContr();
             try
             {
-               
-                         
+                PqrTransactionLoad result = new PqrTransactionLoad();                      
                 GnParam param = daoParam.GetGnParam(int.Parse(emp_codi));
+                GnFlag spq000001 = boFlag.GetGnDigfl("SPQ000001");
                 if (param == null)
                     throw new Exception(string.Format( "Parámetros de empresa no definidos para empresa {0}", emp_codi));
-                List<GnPaise> countries = boPaise.GetGnPaise();
-            
-                List<GnDepar> states = boDepar.GetGnDepar(param.pai_codi);               
-                  
-                List<GnMunic> cities = boMunic.GetAllGnMunic(param.pai_codi);
-                
-                GnFlag flag = boFlag.GetGnDigfl("SPQ000002");
-             
-                List<GnItem> pqrType = boItems.GetGnItems(327);
-               
-                List<GnItem> pqrSubject = boItems.GetGnItems(330);
-               
-                List<GnItem> pqrInscription = boItems.GetGnItems(331);
-               
-                List<TOGPerte> pqrGrpups = boPerte.GetPqDpara();
-                
-                               
-                PqrTransactionLoad result = new PqrTransactionLoad();
+                List<GnPaise> countries = boPaise.GetGnPaise();            
+                List<GnDepar> states = boDepar.GetGnDepar(param.pai_codi);                                 
+                List<GnMunic> cities = boMunic.GetAllGnMunic(param.pai_codi);                
+                GnFlag flag = boFlag.GetGnDigfl("SPQ000002");             
+                List<GnItem> pqrType = boItems.GetGnItems(327);               
+                List<GnItem> pqrSubject = boItems.GetGnItems(330);               
+                List<GnItem> pqrInscription = boItems.GetGnItems(331);               
+                List<TOGPerte> pqrGrpups = boPerte.GetPqDpara();                                                             
                 result.countries = countries;
                 result.states = states;
                 result.cities = cities;
@@ -73,12 +64,17 @@ namespace RPQINPQR.BO
                 result.pqrGroup = pqrGrpups;
                 result.digiflag = flag;
                 result.pqrImage = daoLogo.GetGnLogo(int.Parse(emp_codi)).emp_logs;
-                if (emp_codi.Length > 0 && cli_coda.Length > 0)
+                if (emp_codi.Length > 0 && cli_coda!=null)
                 {
                     FaClien client = DAOFaClien.GetFaClien(int.Parse(emp_codi), cli_coda);
                     if (client == null)
-                        throw new Exception(string.Format("No se encontraron clientes con identificación {0} y empresa {1}", emp_codi, cli_coda));                    
-                }
+                        throw new Exception(string.Format("No se encontraron clientes con identificación {0} y empresa {1}", cli_coda, emp_codi));
+                    result.client = client;
+                    result.contracts = daoContr.GetCtContr(int.Parse(emp_codi),cli_coda);
+                  
+                }              
+                if (spq000001 != null)
+                    result.spq000001 = spq000001;
                 return new TOTransaction<PqrTransactionLoad>() { objTransaction = result, txtRetorno = "", retorno = 0 };
 
             }
@@ -107,7 +103,9 @@ namespace RPQINPQR.BO
                 mailHandler.uploadFile();
                 pqr.emp_codi = int.Parse(emp_codi);
                 pqr.inp_cont = daoPqr.GetCont("PQ_INPQR", "INP_CONT");
-                pqr.arb_sucu = daoArbol.GetGnArbol("2", "0", int.Parse(emp_codi))[0].arb_cont.ToString();
+                if (string.IsNullOrEmpty(pqr.arb_sucu))
+                    pqr.arb_sucu = "0";
+                pqr.arb_sucu = daoArbol.GetGnArbol("2", pqr.arb_sucu, int.Parse(emp_codi))[0].arb_cont.ToString();
                 pqr.ite_frec = daoItems.GetGnItems(326, "3")[0].ite_cont.ToString();
                 pqr.arb_cecr = daoArbol.GetGnArbol("3", "0", int.Parse(emp_codi))[0].arb_cont.ToString();
                 if(pqr.pai_codi == param.pai_codi)

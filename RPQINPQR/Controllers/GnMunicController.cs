@@ -15,7 +15,7 @@ namespace RPQINPQR.Controllers
         /// Retorna todos los municipios existentes
         /// </summary>
         /// <returns></returns>
-        public TOTransaction<List<GnMunic>> Get(int pai_codi)
+        public List<GnMunic> Get(int pai_codi)
         {
             BOGnMunic bo = new BOGnMunic();
             return bo.GetAllGnMunic(pai_codi);

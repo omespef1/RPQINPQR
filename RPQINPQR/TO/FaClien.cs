@@ -10,6 +10,7 @@ namespace RPQINPQR.TO
         public int emp_codi { get; set; }
         public string cli_coda { get; set; }
         public string arb_csuc { get; set; }
+        public string arb_nomb { get; set; }
         public int tip_codi { get; set; }
         public string tip_nomb { get; set; }
         public string cli_nomb { get; set; }
@@ -20,5 +21,7 @@ namespace RPQINPQR.TO
         public int pai_codi { get; set; }
         public int dep_codi { get; set; }
         public int mun_codi { get; set; }
+        public int reg_codi { get; set; }
+        public string tip_abre { get; set; }
     }
 }

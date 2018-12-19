@@ -15,10 +15,10 @@ namespace RPQINPQR.Controllers
 
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         // GET: api/PqrTransactionLoad
-        public TOTransaction<PqrTransactionLoad> Get()
+        public TOTransaction<PqrTransactionLoad> Get(string cli_coda=null)
         {
             BOPqInpqr bo = new BOPqInpqr();
-            return bo.GetInitialDataWpqinqr();
+            return bo.GetInitialDataWpqinqr(cli_coda);
         }
 
         // GET: api/PqrTransactionLoad/5
